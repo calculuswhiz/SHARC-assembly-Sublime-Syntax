@@ -1,7 +1,7 @@
 SHARC assembly Sublime Syntax
 =============================
 
-A syntax definition for the SHARC's (The DSP board from Analog Devices) assembly language. I think it works reasonably well. As far as I know, no other ones exist. I have tested it only on the 21364 EZ-Kit Lite, so I do not know about other boards. My guess is that it should work, though. It may require some tweaking...
+A syntax definition for the SHARC's (The DSP board from Analog Devices) assembly language. I think it works reasonably well. As far as I know, no other ones exist.It does *not* include keywords for Analog Devices' other boards (Blackfin/TigerSHARC).
 
 I made this because I really don't like the VisualDSP++ IDE that much... No word wrap, tabs, etc...
 
