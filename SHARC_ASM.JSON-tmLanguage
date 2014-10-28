@@ -8,7 +8,7 @@
                 }
             }, 
             "name": "support.class", 
-            "match": "\\b(?i:jump|call|bit|set|modify|bit (set|tgl|tst|clr|xor)|bitrev|push|pop|nop|idle|cjump|rframe|[dp]m|if|else|do|until|EQ|NE|GT|LT|GE|LE|(NOT )?A[CV]|(NOT )?M[VS]|(NOT )?S[VZ]|(NOT )?TF|(NOT )?FLAG[0-3]_IN|(NOT )?BM|(NOT )?LCE|FOREVER|TRUE|compu?|abs|pass|fix|logb|mant|rnd|scalb|float|by|trunc|recips|rsqrts|copysign|min|max|clip|and|or|xor|lshift|ashift|rot|bclr|bset|btgl|btst|fdep|fext|exp|left[zo]|fpack|funpack|rt[si])\\b"
+            "match": "\\b(?i:jump|call|modify|bit (set|tgl|tst|clr|xor)|bitrev|push|pop|nop|idle|cjump|rframe|[dp]m|if|else|do|until|EQ|NE|GT|LT|GE|LE|(NOT )?A[CV]|(NOT )?M[VS]|(NOT )?S[VZ]|(NOT )?TF|(NOT )?FLAG[0-3]_IN|(NOT )?BM|(NOT )?LCE|FOREVER|TRUE|compu?|abs|pass|fix|logb|mant|rnd|scalb|float|by|trunc|recips|rsqrts|copysign|min|max|clip|and|or|xor|lshift|ashift|rot|bclr|bset|btgl|btst|fdep|fext|exp|left[zo]|fpack|funpack|rt[si]|offsetof|sizeof)\\b"
         }, 
         {
             "name": "comment.assembly", 
@@ -25,29 +25,42 @@
             "name": "comment.assembly"
         }, 
         {
+            "name": "keyword.operator",
+            "match": "(=|\\||/|\\+|-|\\*|&|~|%|<<|>>|^)|\\b(ADDRESS|HI|LO|LENGTH)\\b"
+        },
+        {
+            "comment": "For int constants",
             "name": "constant.numeric", 
-            "match": "\\b(-)?[0-9]+\\b"
+            "match": "\\b-?[0-9]+\\b"
         }, 
         {
+            "comment": "For hex constants",
             "name": "constant.numeric", 
             "match": "\\b(0x)(?i)[A-F0-9]+\\b"
         }, 
         {
+            "comment": "For binary constants",
             "name": "constant.numeric", 
-            "match": "\\b(0b)(?i)[01]+\\b"
+            "match": "\\b[bB]#[01]+\\b"
         }, 
+        {
+            "comment": "For floating point constants",
+            "name": "constant.numeric", 
+            "match": "\\b-?[0-9]*(\\.[0-9]*)?e[-+]?[0-9]+r?\\b"
+        }, 
+        {
+            "comment": "For fractional constants",
+            "name": "constant.numeric",
+            "match": "\\b-?[0-9]*(\\.[0-9]*)?r?\\b"
+        },
         {
             "name": "string.quoted",
             "match": "([\"].*[\"])|(?<=include )<.*>"
         },
         {
-            "name": "keyword.operator",
-            "match": "=|\\||/|\\+|-|\\*"
-        },
-        {
             "comment": "Names registers case insensitive",
             "name": "entity.name.function.reg", 
-            "match": "\\b(?i:(I|M|L|B|R|F|SF?)([0-9]\\b|1[0-5])|PC(STKP?)?|[FDL]ADDR|(CUR)?LCNTR|PX(1|2)?|TPERIOD|TCOUNT|MODE[12]|IRPTL|IMASK(P)?|MMASK|FLAGS|LIRPTL|ASTAT[xy]|STK[xy]|USTAT[1-4]|SYSCON|SYSTAT|WAIT|VIRPT|MR([0-2])?(F|B)?|SYSCTL|REVPID|EEMU(IN|STAT|OUT)|OSPID|BRKCTL|(PS|DM)A[1-4][ES]|PMDA[SE]|EMUN|IOA[SE]|PPCTL|[RT]XPP|[EI][IMC]PP|[RT]XSPIB?|SPIFLG|SPI(CTLB?|STAT|BAUDB?|MACB?)|I[IM]SPIB?|RXSPIB?_SHADOW|CP?SPIB?|TM[0-2](STAT|CTL|CNT|PRD|W)|PMCTL|I[IM]SP[0-5][AB]|C(P)?SP[0-5][AB]|[RT]XSP[0-5][AB]|SPCTL[0-5]|DIV[0-5]|SPCNT[0-5]|MT[024]CC?S[0-3]|MR[135]CC?S[0-3]|SPMCTL(01|23|45)|SRU_(CLK|PIN(EN)?)[0-3]|SRU_DAT[0-4]|SRU_FS[0-2]|SRU(_EXT)?_MISC[AB]|SRU_PBEN[0-3]|PCG_CTL_[AB][01]|PCG_PW|PCG_SYNC|PWMG(CTL|STAT)[0-3]?|PWMPERIOD[0-3]|PWMSEG[0-3]|PWMPOL[0-3]|PWM[AB]L?[0-3]|PWMDT[0-3]||IDP_CTL[01]|DAI_STAT|IDP_FIFO|IDP_DMA_[IMC][0-7]|IDP_DMA_PC[0-7]|IDP_PDAP_CTL|IDP_PP_CTL|DAI_PIN_PULLUP|DAI_PBIN_STAT|DAI_IRPTL_(H|L|PRI|[RF]E)|SRCCTL[01]|SRCMUTE|SRCRAT[01]|DIRCTL|DI[RT]CHAN[LR]|DIRCTL|DIRSTAT|PICR[0-3])\\b"
+            "match": "\\b(?i:(I|M|L|B|R|F|SF?)([0-9]\\b|1[0-5])|PC(STKP?)?|[FDL]ADDR|(CUR)?LCNTR|PX(1|2)?|TPERIOD|TCOUNT|MODE[12]|IRPTL|IMASK(P)?|MMASK|FLAGS|LIRPTL|ASTAT[xy]|STK[xy]|USTAT[1-4]|SYSCON|SYSTAT|WAIT|VIRPT|MR([0-2])?(F|B)?|SYSCTL|REVPID|EEMU(IN|STAT|OUT)|OSPID|BRKCTL|(PS|DM)A[1-4][ES]|PMDA[SE]|EMUN|IOA[SE]|PPCTL|[RT]XPP|[EI][IMC]PP|[RT]XSPIB?|SPIFLG|SPI(CTLB?|STAT|BAUDB?|MACB?)|I[IM]SPIB?|RXSPIB?_SHADOW|CP?SPIB?|TM[0-2](STAT|CTL|CNT|PRD|W)|PMCTL|I[IM]SP[0-5][AB]|C(P)?SP[0-5][AB]|[RT]XSP[0-5][AB]|SPCTL[0-5]|DIV[0-5]|SPCNT[0-5]|MT[024]CC?S[0-3]|MR[135]CC?S[0-3]|SPMCTL(01|23|45)|SRU_(CLK|PIN(EN)?)[0-3]|SRU_DAT[0-4]|SRU_FS[0-2]|SRU(_EXT)?_MISC[AB]|SRU_PBEN[0-3]|PCG_CTL[AB][01]|PCG_PW|PCG_SYNC|PWMG(CTL|STAT)[0-3]?|PWMPERIOD[0-3]|PWMSEG[0-3]|PWMPOL[0-3]|PWM[AB]L?[0-3]|PWMDT[0-3]||IDP_CTL[01]|DAI_STAT|IDP_FIFO|IDP_DMA_[IMC][0-7]|IDP_DMA_PC[0-7]|IDP_PDAP_CTL|IDP_PP_CTL|DAI_PIN_PULLUP|DAI_PBIN_STAT|DAI_IRPTL_(H|L|PRI|[RF]E)|SRCCTL[01]|SRCMUTE|SRCRAT[01]|DIRCTL|DI[RT]CHAN[LR]|DIRCTL|DIRSTAT|PICR[0-3])\\b"
         },
         { "name": "keyword.label",
           "match": "(^(\\s|\\w)*(\\w|\\.|\\$){1}\\w+[:])",
@@ -57,7 +70,7 @@
           "comment": "Assembly label"
         },
         { "name": "keyword.preprocessor",
-          "match": "^\\s*(?i:\\.(section|global|extern|var)|#(include|define|elif|else|endif|error|if|ifdef|ifndef|line|pragma|undef|warning|#))",
+          "match": "^\\s*(?i:__(ADI|DATE|FILE|LastSuffix|LINE|TIME)__|\\.(ALIGN|ELIF|ELSE|ENDIF|EXTERN|FILE|FILE_ATTR|GLOBAL|IF|IMPORT|LEFTMARGIN|LIST|LIST_DATA|LIST_DATFILE|LIST_DEFTAB|LIST_LOCTAB|LIST_WRAPDATA|NEWPAGE|NOLIST_DATA|NOLIST_DATFILE|NOLIST_WRAPDATA|PAGELENGTH|PAGEWIDTH|PRECISION|ROUND_MINUS|ROUND_NEAREST|ROUND_PLUS|ROUND_ZERO|PREVIOUS|SECTION|STRUCT|VAR|WEAK)|#(include|define|elif|else|endif|error|if|ifdef|ifndef|line|pragma|undef|warning|#))",
           "captures": {
             "1": { "name": "keyword.preprocessor" }
           },
