@@ -1,7 +1,7 @@
-SHARC assembly Sublime Syntax
+SHARC assembly Sublime Syntax (The DSP board from Analog Devices.)
 =============================
 
-A syntax definition for the SHARC assembly language. I think it works reasonably well. As far as I know, no other ones exist.
+A syntax definition for the SHARC assembly language. I think it works reasonably well. As far as I know, no other ones exist. I have tested it only on the 21364 EZ-Kit Lite. I do not know about other boards.
 
 Installation (Windows):
 - Get sublime_text (get the 32 bit if you want to crack it).
