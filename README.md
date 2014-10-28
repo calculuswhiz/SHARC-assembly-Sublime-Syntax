@@ -1,7 +1,7 @@
 SHARC assembly Sublime Syntax
 =============================
 
-A syntax definition for the SHARC assembly language. I think it works reasonably well.
+A syntax definition for the SHARC assembly language. I think it works reasonably well. As far as I know, no other ones exist.
 
 Installation (Windows):
 - Get sublime_text (get the 32 bit if you want to crack it).
