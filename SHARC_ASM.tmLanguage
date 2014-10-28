@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>asm</string>
+	</array>
+	<key>name</key>
+	<string>SHARC asm</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.class.functions</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Function names case insensitive</string>
+			<key>match</key>
+			<string>\b(?i:jump|call|bit|set|modify|bit (set|tgl|tst|clr|xor)|bitrev|push|pop|nop|idle|cjump|rframe|[dp]m|if|else|do|until|EQ|NE|GT|LT|GE|LE|(NOT )?A[CV]|(NOT )?M[VS]|(NOT )?S[VZ]|(NOT )?TF|(NOT )?FLAG[0-3]_IN|(NOT )?BM|(NOT )?LCE|FOREVER|TRUE|compu?|abs|pass|fix|logb|mant|rnd|scalb|float|by|trunc|recips|rsqrts|copysign|min|max|clip|and|or|xor|lshift|ashift|rot|bclr|bset|btgl|btst|fdep|fext|exp|left[zo]|fpack|funpack|rt[si])\b</string>
+			<key>name</key>
+			<string>support.class</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>//.*$</string>
+			<key>name</key>
+			<string>comment.assembly</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>comment.assembly</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.assembly</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(-)?[0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(0x)(?i)[A-F0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(0b)(?i)[01]+\b</string>
+			<key>name</key>
+			<string>constant.numeric</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(["].*["])|(?&lt;=include )&lt;.*&gt;</string>
+			<key>name</key>
+			<string>string.quoted</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>=|\||/|\+|-|\*</string>
+			<key>name</key>
+			<string>keyword.operator</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Names registers case insensitive</string>
+			<key>match</key>
+			<string>\b(?i:(I|M|L|B|R|F|SF?)([0-9]\b|1[0-5])|PC(STKP?)?|[FDL]ADDR|(CUR)?LCNTR|PX(1|2)?|TPERIOD|TCOUNT|MODE[12]|IRPTL|IMASK(P)?|MMASK|FLAGS|LIRPTL|ASTAT[xy]|STK[xy]|USTAT[1-4]|SYSCON|SYSTAT|WAIT|VIRPT|MR([0-2])?(F|B)?|SYSCTL|REVPID|EEMU(IN|STAT|OUT)|OSPID|BRKCTL|(PS|DM)A[1-4][ES]|PMDA[SE]|EMUN|IOA[SE]|PPCTL|[RT]XPP|[EI][IMC]PP|[RT]XSPIB?|SPIFLG|SPI(CTLB?|STAT|BAUDB?|MACB?)|I[IM]SPIB?|RXSPIB?_SHADOW|CP?SPIB?|TM[0-2](STAT|CTL|CNT|PRD|W)|PMCTL|I[IM]SP[0-5][AB]|C(P)?SP[0-5][AB]|[RT]XSP[0-5][AB]|SPCTL[0-5]|DIV[0-5]|SPCNT[0-5]|MT[024]CC?S[0-3]|MR[135]CC?S[0-3]|SPMCTL(01|23|45)|SRU_(CLK|PIN(EN)?)[0-3]|SRU_DAT[0-4]|SRU_FS[0-2]|SRU(_EXT)?_MISC[AB]|SRU_PBEN[0-3]|PCG_CTL_[AB][01]|PCG_PW|PCG_SYNC|PWMG(CTL|STAT)[0-3]?|PWMPERIOD[0-3]|PWMSEG[0-3]|PWMPOL[0-3]|PWM[AB]L?[0-3]|PWMDT[0-3]||IDP_CTL[01]|DAI_STAT|IDP_FIFO|IDP_DMA_[IMC][0-7]|IDP_DMA_PC[0-7]|IDP_PDAP_CTL|IDP_PP_CTL|DAI_PIN_PULLUP|DAI_PBIN_STAT|DAI_IRPTL_(H|L|PRI|[RF]E)|SRCCTL[01]|SRCMUTE|SRCRAT[01]|DIRCTL|DI[RT]CHAN[LR]|DIRCTL|DIRSTAT|PICR[0-3])\b</string>
+			<key>name</key>
+			<string>entity.name.function.reg</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.label</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Assembly label</string>
+			<key>match</key>
+			<string>(^(\s|\w)*(\w|\.|\$){1}\w+[:])</string>
+			<key>name</key>
+			<string>keyword.label</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.preprocessor</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Macros and such</string>
+			<key>match</key>
+			<string>^\s*(?i:\.(section|global|extern|var)|#(include|define|elif|else|endif|error|if|ifdef|ifndef|line|pragma|undef|warning|#))</string>
+			<key>name</key>
+			<string>keyword.preprocessor</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.asm</string>
+	<key>uuid</key>
+	<string>11ba1c1f-e1d7-47ba-9f65-2dd238b046bc</string>
+</dict>
+</plist>
