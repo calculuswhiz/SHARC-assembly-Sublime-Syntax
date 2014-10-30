@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>asm</string>
+	</array>
+	<key>name</key>
+	<string>Blackfin asm</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.class.functions.blackfinasm</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Function names case insensitive</string>
+			<key>match</key>
+			<string>\b(?i:jump(\.[ls])?|call|modify|push|pop|m?nop|idle(_req)?|cjump|rframe|[dp]m|if|else|do|until|EQ|NE|GT|LT|GE|LE|(NOT )?A[CV]|(NOT )?M[VS]|(NOT )?S[VZ]|(NOT )?TF|(NOT )?FLAG[0-3]_IN|(NOT )?BM|(NOT )?LCE|FOREVER|TRUE|compu?|abs|pass|fix|logb|mant|rnd(12|20|H|L)?|scalb|float|by|trunc|recips|rsqrts|copysign|min|max|clip|and|or|xor|lshift|ashift|ro[lr]|bclr|bset|btgl|btst|fdep|fext|exp|left[zo]|fpack|funpack|rt[sxi]|[cs]sync|offsetof|sizeof|bitset|lsetup|abort|ALIGN(8|16|24)|AMNOP|as[lr]|assign|bang|bar|bit(clr|mux|pos|set|tgl|tst|_xor_ac)|bp|brev|br[ft]|byteop[123]p|byteop16[mp]|byteop1ns|byte(un)?pack|bxor(shift)?|caret|cli|co|code|colon|comma|data|deposit|disalgnexcpt|divsdeposit|doze|div[qs]|dot|emucause|emuexcpt|excause|excpt|expadj|extract|fext(sx)?|flush(inv)?|fp|fu|gf|hlt|hwercause|iflush|ih|intrp|is(s2)|iu|link|ljump|lmax|lmin|loop(_begin|_end)?|lparen|lsetup|max|min(us)?|munop|neg|no_init|ones|outc|prnt|percent|plus|prefetch|raise|rbrace|rbrack|rot(_[lr]_ac)?|rparen|rsdl|rte|runtime_init|r1_colon0|retain_name|s2rnd|saa([123][hl])?|sat|sco|search|sht_type|sign(bits)?|slash|sleep|skp[ft]|sp|ssf(_rnd(_hi)?|_trunc(_hi)?)?|ssyn|sti|stt_type|su|testset|tfu|t[hl]|unli?nk|unraise|uu|vit_max|w32|weak|zero_init|)\b</string>
+			<key>name</key>
+			<string>support.class.functions.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>//.*$</string>
+			<key>name</key>
+			<string>comment.assembly.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>comment.assembly.blackfinasm</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.assembly.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(=|\||/|\+|-|\*|&amp;|~|%|&lt;&lt;|&gt;&gt;|^|@|!)|\b(?i:(ADDRESS|HI|LO|LENGTH|W))\b</string>
+			<key>name</key>
+			<string>keyword.operator.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>For int constants</string>
+			<key>match</key>
+			<string>\b-?[0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>For hex constants</string>
+			<key>match</key>
+			<string>\b(0x)(?i)[A-F0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>For binary constants</string>
+			<key>match</key>
+			<string>\b[bB]#[01]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>For floating point constants</string>
+			<key>match</key>
+			<string>\b-?[0-9]*(\.[0-9]*)?e[-+]?[0-9]+r?\b</string>
+			<key>name</key>
+			<string>constant.numeric.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>For fractional constants</string>
+			<key>match</key>
+			<string>\b-?[0-9]*(\.[0-9]*)?r?\b</string>
+			<key>name</key>
+			<string>constant.numeric.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(["].*["])|(?&lt;=include )&lt;.*&gt;</string>
+			<key>name</key>
+			<string>string.quoted.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Names registers case insensitive</string>
+			<key>match</key>
+			<string>\b(?i:(R[0-7]|P[0-5]|[SF]P|[IMBL][0-3])(\.[hl])?|ASTAT|RET[SXINE]|L[CBT][01]|CYCLES2?|SEQSTAT|SYSCFG|A[01](\.[xw])?|AZ|AN|AC|AV[01]|CC|AQ|PC)\b</string>
+			<key>name</key>
+			<string>entity.name.function.reg</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.label.blackfinasm</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Assembly label</string>
+			<key>match</key>
+			<string>(^(\s|\w)*(\w|\.|\$){1}\w+[:])</string>
+			<key>name</key>
+			<string>keyword.label.blackfinasm</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.preprocessor.blackfinasm</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Macros and such</string>
+			<key>match</key>
+			<string>^\s*(?i:_(ADI|DATE|FILE|LastSuffix|LINE|TIME)_|\.(ALIGN|ASCII|ASM_ASSERT|ASSERT|BSS|BYTE[24]?|DATA|ELIF|ELSE|ENDIF|ELSE|ENDIF|EXTERN|FILE|FILE_ATTR|GLOBAL|GLOBL|IF|INC/BINARY|INCBIN|IMPORT|LEFTMARGIN|LIST|LIST_DATA|LIST_DATFILE|LIST_DEFTAB|LIST_LOCTAB|LIST_WRAPDATA|LONG|NEWPAGE|NOLIST|NOLIST_DATA|NOLIST_DATFILE|NOLIST_WRAPDATA|PAGELENGTH|PAGEWIDTH|PREVIOUS|SECTION|SET SYMBOL|SYMBOL|SHORT|STRUCT|TEXT|TYPE|VAR|WEAK)|#(include|define|elif|else|endif|error|if(n?def)?|line|pragma|undef|warning|#))</string>
+			<key>name</key>
+			<string>keyword.preprocessor.blackfinasm</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.asm</string>
+	<key>uuid</key>
+	<string>b23feea3-6bf1-40bb-a966-9eb43422d251</string>
+</dict>
+</plist>

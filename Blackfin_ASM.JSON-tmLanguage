@@ -1,0 +1,86 @@
+{
+    "patterns": [
+        {
+            "comment": "Function names case insensitive", 
+            "captures": {
+                "1": {
+                    "name": "support.class.functions.blackfinasm"
+                }
+            }, 
+            "name": "support.class.functions.blackfinasm", 
+            "match": "\\b(?i:jump(\\.[ls])?|call|modify|push|pop|m?nop|idle(_req)?|cjump|rframe|[dp]m|if|else|do|until|EQ|NE|GT|LT|GE|LE|(NOT )?A[CV]|(NOT )?M[VS]|(NOT )?S[VZ]|(NOT )?TF|(NOT )?FLAG[0-3]_IN|(NOT )?BM|(NOT )?LCE|FOREVER|TRUE|compu?|abs|pass|fix|logb|mant|rnd(12|20|H|L)?|scalb|float|by|trunc|recips|rsqrts|copysign|min|max|clip|and|or|xor|lshift|ashift|ro[lr]|bclr|bset|btgl|btst|fdep|fext|exp|left[zo]|fpack|funpack|rt[sxi]|[cs]sync|offsetof|sizeof|bitset|lsetup|abort|ALIGN(8|16|24)|AMNOP|as[lr]|assign|bang|bar|bit(clr|mux|pos|set|tgl|tst|_xor_ac)|bp|brev|br[ft]|byteop[123]p|byteop16[mp]|byteop1ns|byte(un)?pack|bxor(shift)?|caret|cli|co|code|colon|comma|data|deposit|disalgnexcpt|divsdeposit|doze|div[qs]|dot|emucause|emuexcpt|excause|excpt|expadj|extract|fext(sx)?|flush(inv)?|fp|fu|gf|hlt|hwercause|iflush|ih|intrp|is(s2)|iu|link|ljump|lmax|lmin|loop(_begin|_end)?|lparen|lsetup|max|min(us)?|munop|neg|no_init|ones|outc|prnt|percent|plus|prefetch|raise|rbrace|rbrack|rot(_[lr]_ac)?|rparen|rsdl|rte|runtime_init|r1_colon0|retain_name|s2rnd|saa([123][hl])?|sat|sco|search|sht_type|sign(bits)?|slash|sleep|skp[ft]|sp|ssf(_rnd(_hi)?|_trunc(_hi)?)?|ssyn|sti|stt_type|su|testset|tfu|t[hl]|unli?nk|unraise|uu|vit_max|w32|weak|zero_init|)\\b"
+        }, 
+        {
+            "name": "comment.assembly.blackfinasm", 
+            "match": "//.*$"
+        }, 
+        {
+            "captures": {
+                "0": {
+                    "name": "comment.assembly.blackfinasm"
+                }
+            }, 
+            "begin": "/\\*", 
+            "end": "\\*/", 
+            "name": "comment.assembly.blackfinasm"
+        }, 
+        {
+            "name": "keyword.operator.blackfinasm",
+            "match": "(=|\\||/|\\+|-|\\*|&|~|%|<<|>>|^|@|!)|\\b(?i:(ADDRESS|HI|LO|LENGTH|W))\\b"
+        },
+        {
+            "comment": "For int constants",
+            "name": "constant.numeric.blackfinasm", 
+            "match": "\\b-?[0-9]+\\b"
+        }, 
+        {
+            "comment": "For hex constants",
+            "name": "constant.numeric.blackfinasm", 
+            "match": "\\b(0x)(?i)[A-F0-9]+\\b"
+        }, 
+        {
+            "comment": "For binary constants",
+            "name": "constant.numeric.blackfinasm", 
+            "match": "\\b[bB]#[01]+\\b"
+        }, 
+        {
+            "comment": "For floating point constants",
+            "name": "constant.numeric.blackfinasm", 
+            "match": "\\b-?[0-9]*(\\.[0-9]*)?e[-+]?[0-9]+r?\\b"
+        }, 
+        {
+            "comment": "For fractional constants",
+            "name": "constant.numeric.blackfinasm",
+            "match": "\\b-?[0-9]*(\\.[0-9]*)?r?\\b"
+        },
+        {
+            "name": "string.quoted.blackfinasm",
+            "match": "([\"].*[\"])|(?<=include )<.*>"
+        },
+        {
+            "comment": "Names registers case insensitive",
+            "name": "entity.name.function.reg", 
+            "match": "\\b(?i:(R[0-7]|P[0-5]|[SF]P|[IMBL][0-3])(\\.[hl])?|ASTAT|RET[SXINE]|L[CBT][01]|CYCLES2?|SEQSTAT|SYSCFG|A[01](\\.[xw])?|AZ|AN|AC|AV[01]|CC|AQ|PC)\\b"
+        },
+        { "name": "keyword.label.blackfinasm",
+          "match": "(^(\\s|\\w)*(\\w|\\.|\\$){1}\\w+[:])",
+          "captures": {
+              "0": { "name": "keyword.label.blackfinasm" }
+          },
+          "comment": "Assembly label"
+        },
+        { "name": "keyword.preprocessor.blackfinasm",
+          "match": "^\\s*(?i:_(ADI|DATE|FILE|LastSuffix|LINE|TIME)_|\\.(ALIGN|ASCII|ASM_ASSERT|ASSERT|BSS|BYTE[24]?|DATA|ELIF|ELSE|ENDIF|ELSE|ENDIF|EXTERN|FILE|FILE_ATTR|GLOBAL|GLOBL|IF|INC/BINARY|INCBIN|IMPORT|LEFTMARGIN|LIST|LIST_DATA|LIST_DATFILE|LIST_DEFTAB|LIST_LOCTAB|LIST_WRAPDATA|LONG|NEWPAGE|NOLIST|NOLIST_DATA|NOLIST_DATFILE|NOLIST_WRAPDATA|PAGELENGTH|PAGEWIDTH|PREVIOUS|SECTION|SET SYMBOL|SYMBOL|SHORT|STRUCT|TEXT|TYPE|VAR|WEAK)|#(include|define|elif|else|endif|error|if(n?def)?|line|pragma|undef|warning|#))",
+          "captures": {
+            "1": { "name": "keyword.preprocessor.blackfinasm" }
+          },
+          "comment": "Macros and such"
+        }
+    ], 
+    "uuid": "b23feea3-6bf1-40bb-a966-9eb43422d251", 
+    "fileTypes": [
+        "asm"
+    ], 
+    "name": "Blackfin asm", 
+    "scopeName": "source.asm"
+}

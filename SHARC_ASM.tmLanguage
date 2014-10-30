@@ -16,7 +16,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.class.functions</string>
+					<string>support.class.functions.sharcasm</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -24,13 +24,13 @@
 			<key>match</key>
 			<string>\b(?i:jump|call|modify|bit (set|tgl|tst|clr|xor)|bitrev|push|pop|nop|idle|cjump|rframe|[dp]m|if|else|do|until|EQ|NE|GT|LT|GE|LE|(NOT )?A[CV]|(NOT )?M[VS]|(NOT )?S[VZ]|(NOT )?TF|(NOT )?FLAG[0-3]_IN|(NOT )?BM|(NOT )?LCE|FOREVER|TRUE|compu?|abs|pass|fix|logb|mant|rnd|scalb|float|by|trunc|recips|rsqrts|copysign|min|max|clip|and|or|xor|lshift|ashift|rot|bclr|bset|btgl|btst|fdep|fext|exp|left[zo]|fpack|funpack|rt[si]|offsetof|sizeof)\b</string>
 			<key>name</key>
-			<string>support.class</string>
+			<string>support.class.functions.sharcasm</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>//.*$</string>
 			<key>name</key>
-			<string>comment.assembly</string>
+			<string>comment.assembly.sharcasm</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -40,19 +40,19 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>comment.assembly</string>
+					<string>comment.assembly.sharcasm</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>\*/</string>
 			<key>name</key>
-			<string>comment.assembly</string>
+			<string>comment.assembly.sharcasm</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(=|\||/|\+|-|\*|&amp;|~|%|&lt;&lt;|&gt;&gt;|^)|\b(ADDRESS|HI|LO|LENGTH)\b</string>
+			<string>(=|\||/|\+|-|\*|&amp;|~|%|&lt;&lt;|&gt;&gt;|^|@)|\b(?i:(ADDRESS|HI|LO|LENGTH))\b</string>
 			<key>name</key>
-			<string>keyword.operator</string>
+			<string>keyword.operator.sharcasm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -60,7 +60,7 @@
 			<key>match</key>
 			<string>\b-?[0-9]+\b</string>
 			<key>name</key>
-			<string>constant.numeric</string>
+			<string>constant.numeric.sharcasm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -68,7 +68,7 @@
 			<key>match</key>
 			<string>\b(0x)(?i)[A-F0-9]+\b</string>
 			<key>name</key>
-			<string>constant.numeric</string>
+			<string>constant.numeric.sharcasm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -76,7 +76,7 @@
 			<key>match</key>
 			<string>\b[bB]#[01]+\b</string>
 			<key>name</key>
-			<string>constant.numeric</string>
+			<string>constant.numeric.sharcasm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -84,7 +84,7 @@
 			<key>match</key>
 			<string>\b-?[0-9]*(\.[0-9]*)?e[-+]?[0-9]+r?\b</string>
 			<key>name</key>
-			<string>constant.numeric</string>
+			<string>constant.numeric.sharcasm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -92,13 +92,13 @@
 			<key>match</key>
 			<string>\b-?[0-9]*(\.[0-9]*)?r?\b</string>
 			<key>name</key>
-			<string>constant.numeric</string>
+			<string>constant.numeric.sharcasm</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>(["].*["])|(?&lt;=include )&lt;.*&gt;</string>
 			<key>name</key>
-			<string>string.quoted</string>
+			<string>string.quoted.sharcasm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -114,7 +114,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.label</string>
+					<string>keyword.label.sharcasm</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -122,7 +122,7 @@
 			<key>match</key>
 			<string>(^(\s|\w)*(\w|\.|\$){1}\w+[:])</string>
 			<key>name</key>
-			<string>keyword.label</string>
+			<string>keyword.label.sharcasm</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -130,15 +130,15 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.preprocessor</string>
+					<string>keyword.preprocessor.sharcasm</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>Macros and such</string>
 			<key>match</key>
-			<string>^\s*(?i:__(ADI|DATE|FILE|LastSuffix|LINE|TIME)__|\.(ALIGN|ELIF|ELSE|ENDIF|EXTERN|FILE|FILE_ATTR|GLOBAL|IF|IMPORT|LEFTMARGIN|LIST|LIST_DATA|LIST_DATFILE|LIST_DEFTAB|LIST_LOCTAB|LIST_WRAPDATA|NEWPAGE|NOLIST_DATA|NOLIST_DATFILE|NOLIST_WRAPDATA|PAGELENGTH|PAGEWIDTH|PRECISION|ROUND_MINUS|ROUND_NEAREST|ROUND_PLUS|ROUND_ZERO|PREVIOUS|SECTION|STRUCT|VAR|WEAK)|#(include|define|elif|else|endif|error|if|ifdef|ifndef|line|pragma|undef|warning|#))</string>
+			<string>^\s*(?i:__(ADI|DATE|FILE|LastSuffix|LINE|TIME)__|\.(ALIGN|ELIF|ELSE|ENDIF|EXTERN|FILE|FILE_ATTR|GLOBAL|IF|IMPORT|LEFTMARGIN|LIST|LIST_DATA|LIST_DATFILE|LIST_DEFTAB|LIST_LOCTAB|LIST_WRAPDATA|NEWPAGE|NOLIST_DATA|NOLIST_DATFILE|NOLIST_WRAPDATA|PAGELENGTH|PAGEWIDTH|PRECISION|ROUND_MINUS|ROUND_NEAREST|ROUND_PLUS|ROUND_ZERO|PREVIOUS|SECTION|STRUCT|VAR|WEAK)|#(include|define|elif|else|endif|error|if(n?def)?|line|pragma|undef|warning|#))</string>
 			<key>name</key>
-			<string>keyword.preprocessor</string>
+			<string>keyword.preprocessor.sharcasm</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
