@@ -1,20 +1,18 @@
 SHARC assembly Sublime Syntax
 =============================
 
-A syntax definition for the SHARC's (The DSP board from Analog Devices) assembly language. I think it works reasonably well. As far as I know, no other ones exist. It does *not* include keywords for Analog Devices' TigerSHARC board, and the Blackfin definitions are not very well researched. I do not have any plans to update the Blackfin definition, but expect changes for SHARC.
+A syntax definition for the SHARC's (The DSP board from Analog Devices) assembly language. I think it works reasonably well. As far as I know, no other ones exist. It does *not* include keywords for Analog Devices' TigerSHARC board, and the Blackfin definitions are not very well researched. I spent the semester with a SHARC board, so there you go.
 
-I made this because I really don't like the VisualDSP++ IDE that much... No word wrap, tabs, etc...
+I made this because I really don't like the VisualDSP++ IDE that much. No word wrap, tabs, etc...
 
 Installation (Windows):
-- Get sublime_text (get the 32 bit if you want to crack it).
+- Get sublime_text.
 - Install "Package Control" : https://sublime.wbond.net/installation#st2
 - Extract/copy/Whatever-I-Don't-Care "Assembly x86 AT&T.tmLanguage" and "Comments (ASM x86).tmPreferences" into [sublime directory]\Data\Packages\User\
+- Or simply `git clone' this repo.
+- I'm currently attempting to move this to Package control, so sit tight.
 
-If you wish to make edits to the definition yourself:
-- Install package AAAPackageDev via Preferences>Package Control.
-- To edit, you can open "Assembly x86 AT&T.JSON-tmLanguage," or edit the "Assembly x86 AT&T.tmLanguage" file directly. The JSON is probably easier to look at.
-- If you chose to edit the JSON, press F7 after saving and generate as Property List.
-- Move the generated file to the ...\User\ directory, if you haven't already.  You can even keep both files in the directory, if you wish.
+Pull requests and bug reports always welcome.
 
 Sublime should automatically take care of the syntax highlighting, so there's no need to restart.
 
