@@ -18,7 +18,7 @@ Sublime should automatically take care of the syntax highlighting, so there's no
 
 
 Description of Files:
-- blahblah.JSON-tmLanguage : the syntax definition in JSON form. More convenient to edit, but must be converted first. See above for instructions.
+- blahblah.JSON-tmLanguage : the syntax definition in JSON form. More convenient to edit, but must be converted first. Press F7 after installing AAApackagedev.
 - blahblah.tmLanguage : the syntax definition in tmLanguage form (a form of xml). Can be edited directly without compiling.
 - blahblah.tmPreferences : enables the commenting shortcut of sublime text.
 - README.md : read this file from the top for more information.
