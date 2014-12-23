@@ -1,0 +1,5 @@
+[Install message]
+    Thank you for downloading!
+
+    !!IMORTANT!!
+    Be advised that SHARC assembly files end in .asm, which may cause issues because people who make these languages have no imaginations when it comes to file name extensions (I'm looking at you, LC3 and 6502.). Couldn't you have just used '.ads' or something, Analog Devices? Unfortunately, I don't know a way around this, so you may have to uninstall or temporarily move other syntax highlighting files that take .asm to a different location. I'm really sorry for the inconvenience.
