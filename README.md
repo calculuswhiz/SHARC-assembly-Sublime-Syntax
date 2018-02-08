@@ -1,6 +1,10 @@
 SHARC assembly Sublime Syntax
 =============================
 
+IMPORTANT MESSAGE: THIS REPOSITORY WILL NO LONGER BE MAINTAINED.
+
+I have zero interest and little remaining knowledge in DSP chips anymore. If you wish to see a change, you'll have to fork the repo. Sorry. The good news is that it's not that hard to add things.
+
 A syntax definition for the SHARC's (The DSP board from Analog Devices) assembly language. I think it works reasonably well. As far as I know, no other ones exist. It does *not* include keywords for Analog Devices' TigerSHARC board, and the Blackfin definitions are not very well researched. I spent the semester with a SHARC board, so there you go.
 
 I made this because I really don't like the VisualDSP++ IDE that much. No word wrap, tabs, etc...
